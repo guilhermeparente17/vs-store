@@ -70,7 +70,10 @@ const Login = () => {
 
           {/* {errors && <span>This field is required</span>} */}
 
-          <S.ButtonLogin type="submit">Login</S.ButtonLogin>
+          <div style={{ display: "flex", gap: "20px" }}>
+            <S.ButtonLogin type="submit">Login</S.ButtonLogin>
+            <S.ButtonLogin onClick={() => navigate("/")}>Voltar</S.ButtonLogin>
+          </div>
         </S.LoginForm>
       </S.LoginContent>
     </S.LoginContainer>

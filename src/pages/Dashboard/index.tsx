@@ -1,12 +1,19 @@
 import { Link, Outlet, useNavigate } from "react-router-dom";
 import * as S from "./styles";
 import { TiArrowForwardOutline } from "react-icons/ti";
+import ContentDashboard from "../ContentDashboard";
 
 const Dashboard = () => {
   const navigate = useNavigate();
 
   const handleLogout = () => {
     navigate("/login");
+  };
+
+  const renderRouteContent = () => {
+    if (location.pathname === "/dashboard") {
+      return <ContentDashboard />;
+    }
   };
 
   return (
@@ -71,6 +78,7 @@ const Dashboard = () => {
         </S.LogoutMenu>
       </S.Sidebar>
       <S.Content>
+        {renderRouteContent()}
         <Outlet />
       </S.Content>
     </S.DashboardContainer>
