@@ -21,7 +21,7 @@ export const LoginContainer = styled.div`
 `;
 
 export const LoginContent = styled.div`
-  width: 300px;
+  width: 400px;
   height: fit-content;
   backdrop-filter: blur(10px);
 
@@ -44,6 +44,7 @@ export const LoginTitle = styled.h2`
 
 export const WrapLogin = styled.div`
   display: flex;
+  width: 300px;
   flex-direction: column;
   gap: 10px;
 `;

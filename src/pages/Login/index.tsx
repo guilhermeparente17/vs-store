@@ -6,18 +6,29 @@ import backgroundImage from "../../assets/background-login.jpg";
 import { toast } from "react-toastify";
 import { useAuth } from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
+import * as yup from "yup";
+import { yupResolver } from "@hookform/resolvers/yup";
+import TextError from "../../components/TextError";
 
 type loginProps = {
   email: string;
   password: string;
 };
 
+const schema = yup.object({
+  email: yup.string().email("Email inválido").required("Email é obrigatório"),
+  password: yup
+    .string()
+    .min(3, "A senha deve ter no mínimo 3 caracteres")
+    .required("Senha é obrigatória"),
+});
+
 const Login = () => {
   const {
     register,
     handleSubmit,
-    // formState: { errors },
-  } = useForm<loginProps>();
+    formState: { errors },
+  } = useForm<loginProps>({ resolver: yupResolver(schema) });
   const { setToken } = useAuth();
   const navigate = useNavigate();
 
@@ -61,11 +72,13 @@ const Login = () => {
           <S.WrapLogin>
             <S.Label htmlFor="">Email</S.Label>
             <Input type="email" register={register("email")} />
+            {errors.email && <TextError name={errors?.email?.message} />}
           </S.WrapLogin>
 
           <S.WrapLogin>
             <S.Label htmlFor="">Password</S.Label>
             <Input type="password" register={register("password")} />
+            {errors.password && <TextError name={errors?.password?.message} />}
           </S.WrapLogin>
 
           {/* {errors && <span>This field is required</span>} */}
