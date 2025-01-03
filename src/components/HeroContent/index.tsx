@@ -11,7 +11,6 @@ const HeroContent = () => {
     handleProducts();
   }, []);
 
-  console.log(products);
   return (
     <S.HeroContainer>
       <S.Title>Get Inspired</S.Title>

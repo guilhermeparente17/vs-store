@@ -3,6 +3,9 @@ import styled from "styled-components";
 export const HeroContainer = styled.div`
   padding: 0px 40px;
   margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
 `;
 
 export const Title = styled.div`
@@ -62,6 +65,6 @@ export const ProductsList = styled.div`
   flex-wrap: wrap;
   justify-content: flex-start;
   align-items: center;
-  gap: 20px;
+  gap: 50px;
   margin-top: 30px;
 `;
