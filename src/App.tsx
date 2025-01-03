@@ -6,7 +6,7 @@ import { AuthProvider } from "./context/AuthContext";
 import ProtectedRoute from "./components/protectedRoute";
 import Dashboard from "./pages/Dashboard";
 import Products from "./pages/Products";
-import CreateProduct from "./pages/createProduct";
+import CreateProduct from "./pages/CreateProduct";
 import Categories from "./pages/Categories";
 import CreateCategories from "./pages/CreateCategories";
 
